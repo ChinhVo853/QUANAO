@@ -56,7 +56,7 @@
                                 <tr>
                                     <!-- <td><input class="form-check-input" type="checkbox"></td> -->
 
-                                    <td><img src="bootstrap-admin-template-free.jpg" width="100%" height="50px" alt=""></td>
+                                    
 
                                     <td>
                                         @if($SanPham->hinh_anh->isNotEmpty())
@@ -77,7 +77,7 @@
                                     <td>{{ $SanPham->so_luong }}</td>
                                     <td>{{ $SanPham->trang_thai}}</td>
 
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    
                                     <td><a class="btn btn-outline-dark" href="{{ route('SAN-PHAM.chi-tiet-san-pham',['id'=>$SanPham->id]) }}">Chi tiết</a>
                                     <a class="btn btn-outline-danger" href="{{ route('SAN-PHAM.xoa',['id'=>$SanPham->id]) }}">Xóa</a>
                                     </td>

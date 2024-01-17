@@ -101,7 +101,7 @@ class QuanLyController extends Controller
             return redirect()->route('quan-ly.trang-chu');
         }
 
-    return redirect()->route('dang-nhap');
+        return redirect()->route('dang-nhap')->with('thong_bao','Tài Khoảng hoặc mật khẩu không đúng');
     }
     public function thongTinNguoiDung()
     {

@@ -19,7 +19,7 @@ class SanPhamController extends Controller
     public function view()
     {
         // $san_Pham = SanPham::all();
-        $sanPham = SanPham::with('loai')->with('nha_cung_cap')->paginate(10);
+        $sanPham = SanPham::orderBy('id', 'desc')->with('loai')->with('nha_cung_cap')->paginate(10);
 
         return view('SANPHAM/danh-sach',compact('sanPham'));
     }

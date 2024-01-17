@@ -12,7 +12,7 @@ class HoaDonController extends Controller
 {
     public function View()
     {
-        $hoaDon = HoaDon::paginate(10);
+        $hoaDon = HoaDon::orderBy('id', 'desc')->paginate(10);
         foreach($hoaDon as $hd)
         {
             $hd->khach_hang;

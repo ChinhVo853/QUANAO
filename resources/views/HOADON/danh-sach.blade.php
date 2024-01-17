@@ -23,17 +23,24 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">TÊN</th>
                                     <th>TỔNG TIỀN</th>
+                                    <th>TIỀN SHIP</th>
                                     <th>TRẠNG THÁI</th>
+                                    <th>PHƯƠNG THỨC THANH TOÁN</th>
+
                                 </tr>
                             </thead>
                             @foreach($hoaDon as $HoaDon)
+                                @if($HoaDon->trang_thai_thanh_toan===0 && $HoaDon->phuong_thuc_thanh_toan=="Thanh toán qua Ngân hàng NCB")
+                                    @continue
+                                @endif
                             <tbody>
                                 <tr>
                                     <!-- <td><input class="form-check-input" type="checkbox"></td> -->
-                                    <td style="width: 25%;">{{ $HoaDon->id }}</td>
+                                    <td>{{ $HoaDon->id }}</td>
                                     
                                     <td>{{ $HoaDon->khach_hang->ho_ten }}</td>
                                     <td>{{ $HoaDon->tong_tien }}</td>
+                                    <td>{{ $HoaDon->tien_ship }}</td>
                                     <td>
                                     
                                     @switch($HoaDon->trang_thai) 
@@ -48,6 +55,7 @@
 
 
                                     </td>
+                                    <td>{{ $HoaDon->phuong_thuc_thanh_toan }}</td>
                                     <td><a class="btn btn-outline-primary" href="{{ route('hoa-don.danh-sach-chi-tiet', ['id'=>$HoaDon->id]) }}">Xem chi tiết</a>
                                    
                                     @switch($HoaDon->trang_thai) 

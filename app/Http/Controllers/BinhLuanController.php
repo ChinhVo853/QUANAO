@@ -10,7 +10,7 @@ class BinhLuanController extends Controller
 {
     public function DanhSachBinhLuanCapMot()
     {
-        $binhLuan = BinhLuanCapMot::with('binh_luan_cap_hai')->with('san_pham')->with('khach_hang')->get();
+        $binhLuan = BinhLuanCapMot::orderBy('id', 'desc')->with('binh_luan_cap_hai')->with('san_pham')->with('khach_hang')->get();
        
         return view('BINHLUAN/danh-sach',compact('binhLuan'));
     }

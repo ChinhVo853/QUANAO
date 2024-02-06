@@ -23,6 +23,22 @@ class QuanLySeeder extends Seeder
         $quanly->password=Hash::make('hachiba123');
         $quanly ->save();
 
-       
+        $loai = new Loai();
+        $loai->ten = "Áo thun";
+        $loai->save();
+
+        $mau =new Mau();
+        $mau->ten = "Đỏ";
+        $mau->save();
+
+        $size = new Size();
+        $size->ten = "X";
+        $size->save();
+
+        $nhaCungCap = new NhaCungCap();
+        $nhaCungCap->ten = "Red Dog";
+        $nhaCungCap->email = "RedDog@gmail.com";
+        $nhaCungCap->dia_chi = "tp Hồ Chí Minh";
+        $nhaCungCap->save();
     }
 }

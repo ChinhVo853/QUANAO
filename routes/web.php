@@ -134,8 +134,6 @@ Route::prefix('hoa-don')->group(function(){
         Route::get('/van-chuyen/{id}',[HoaDonController::class,'VanChuyen'])->name('van-chuyen');
         Route::get('/thanh-cong/{id}',[HoaDonController::class,'ThanhCong'])->name('thanh-cong');
         Route::get('/loc/{id}',[HoaDonController::class,'Loc'])->name('loc');
-        Route::get('/loc-thanh-toan/{id}',[HoaDonController::class,'LocThanhToan'])->name('loc-thanh-toan');
-
     });
 });
 

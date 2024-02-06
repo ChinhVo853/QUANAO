@@ -89,15 +89,4 @@ class HoaDonController extends Controller
      
         return view('HOADON/danh-sach',compact('hoaDon'));
     }
-
-    public function LocThanhToan($id)
-    {
-        $hoaDon = HoaDon::where('trang_thai_thanh_toan',$id)->where('phuong_thuc_thanh_toan','Thanh toán qua Ngân hàng NCB')->paginate(10);
-        foreach($hoaDon as $hd)
-        {
-            $hd->khach_hang;
-        }
-     
-        return view('HOADON/danh-sach',compact('hoaDon'));
-    }
 }

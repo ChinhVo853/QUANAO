@@ -16,7 +16,6 @@
 </head>
 <body>
     <!-- đây là danh sách khách hàng -->
-    <h3> Mã: {{$hoaDon->ma}}</h3>
 <h5 class="mb-0">THÔNG TIN KHÁCH HÀNG</h5>
 <p>Tên: {{ $hoaDon->khach_hang->ho_ten }},</p>
 <p>Email: {{ $hoaDon->khach_hang->email }},</p>

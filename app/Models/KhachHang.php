@@ -13,8 +13,6 @@ class KhachHang extends Authenticatable implements JWTSubject
 {
     use SoftDeletes;
     use HasFactory;
-    protected $appends = ['image_path'];
-
     protected $table = "khach_hang";
 
     public function getJWTIdentifier()
@@ -25,9 +23,5 @@ class KhachHang extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
-    }
-    public function getImagePathAttribute()
-    {
-        return env('APP_URL') . "/avatar/{$this->image}";
     }
 }

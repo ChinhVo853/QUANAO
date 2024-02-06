@@ -342,14 +342,6 @@ class SanPhamController extends Controller
 
     public function them_Anh(Request $request,$id)
     {
-        $request->validate([
-            'HinhAnh'=>'required',
-            'HinhAnh'=>'image', 
-        ],[
-            'HinhAnh.required'=>'không được để trống',
-            'HinhAnh.image'=>'phải là file ảnh',
-
-        ]);
         $files = $request->HinhAnh;
         if($files)
         {

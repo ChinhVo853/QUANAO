@@ -55,7 +55,7 @@
 
 </div>
 @endif
-      <input class="input" type="text" name="ten_dang_nhap" id="ten_dang_nhap" placeholder="Tài khoản">
+      <input class="input" type="text" name="ten_dang_nhap" id="ten_dang_nhap" placeholder="Tài khoảng">
       <input class="input" type="password" name="password" id="password" placeholder="Mật khẩu">
       <input class="login-button" type="submit" value="Đăng nhập">
 

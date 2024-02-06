@@ -76,6 +76,7 @@
                                         {{ $chi_tiet_san_pham->so_luong }}
                                     </td>
 
+                                    <td><a class="btn btn-outline-primary" href="">Cập nhật</a></td>
 
                                 </tr>
 
@@ -92,14 +93,6 @@
 
                         <div class="row">
                             <h1 class="danh-sach-chi-tiet-hinh-anh">HÌNH ẢNH</h1>
-                            @if ($errors->any())
-					<div class="alert alert-danger">
-						
-						@foreach($errors->all() as $error)
-						{{$error }}<br>
-					@endforeach
-					</div>
-				@endif  
                         @foreach($hinh_Anh as $item)
 
                         <div class="col-sm-6">

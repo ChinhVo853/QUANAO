@@ -37,7 +37,7 @@ class QuanLyController extends Controller
         ->with('khach_hang')
         ->first();
 
-        $sanPham = SanPham::orderBy('id', 'desc')->take(5)->get();
+        $sanPham = SanPham::latest()->take(5)->get();
       
         $tongDoanhThu = 0;
         $namHienTai = now()->year; // Lấy năm hiện tại

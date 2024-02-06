@@ -5,21 +5,7 @@
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">DANH SÁCH HOÁ ĐƠN</h6>
                         <select onchange="window.location.href=this.value">
-                            <option>
-                                thanh toán ngân hàng
-                            </option>
-                            <option value="{{ route('hoa-don.danh-sach') }}">tất cả</option>
-                            <option value="{{ route('hoa-don.loc-thanh-toan', ['id'=>1]) }}">
-                                đã thanh toán qua ngân hàng
-                            </option>
-                            <option value="{{ route('hoa-don.loc-thanh-toan', ['id'=>0]) }}">
-                                chưa thanh toán qua ngân hàng
-                            </option>
-                        </select>
-                        <select onchange="window.location.href=this.value">
-                        <option>
-                                trạng thái
-                            </option>
+                        <option></option>
                             <option value="{{ route('hoa-don.danh-sach') }}">tất cả</option>
                             <option value="{{ route('hoa-don.loc', ['id'=>0]) }}">đã huỷ</option>
                             <option value="{{ route('hoa-don.loc', ['id'=>1]) }}">chờ xác nhận</option>
@@ -40,15 +26,17 @@
                                     <th>TIỀN SHIP</th>
                                     <th>TRẠNG THÁI</th>
                                     <th>PHƯƠNG THỨC THANH TOÁN</th>
-                                    <th>TRẠNG THÁI THANH TOÁN</th>
+
                                 </tr>
                             </thead>
                             @foreach($hoaDon as $HoaDon)
-                               
+                                @if($HoaDon->trang_thai_thanh_toan===0 && $HoaDon->phuong_thuc_thanh_toan=="Thanh toán qua Ngân hàng NCB")
+                                    @continue
+                                @endif
                             <tbody>
                                 <tr>
                                     <!-- <td><input class="form-check-input" type="checkbox"></td> -->
-                                    <td>{{ $HoaDon->ma }}</td>
+                                    <td>{{ $HoaDon->id }}</td>
                                     
                                     <td>{{ $HoaDon->khach_hang->ho_ten }}</td>
                                     <td>{{ $HoaDon->tong_tien }}</td>
@@ -68,13 +56,6 @@
 
                                     </td>
                                     <td>{{ $HoaDon->phuong_thuc_thanh_toan }}</td>
-                                    <td>
-                                        @switch($HoaDon->trang_thai_thanh_toan) 
-                                            @case(0) chưa thanh toán @break
-                                            @case(1) đã thanh toán @break
-                                            @default trạng thái không xác định 
-                                        @endswitch
-                                    </td>
                                     <td><a class="btn btn-outline-primary" href="{{ route('hoa-don.danh-sach-chi-tiet', ['id'=>$HoaDon->id]) }}">Xem chi tiết</a>
                                    
                                     @switch($HoaDon->trang_thai) 
@@ -93,7 +74,7 @@
                                     @endswitch
                                     
                                 </td>
-                                <td><a href="{{ route('thuchien',['id'=>$HoaDon->id]) }}" class="btn btn-outline-success">
+                                <td><a href="{{ route('thuchien',['id'=>$HoaDon->khach_hang->id]) }}" class="btn btn-outline-success">
 								<i class="fe fe-check-circle"></i>
 								XUẤT PDF
         </a></td>

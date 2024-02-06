@@ -57,20 +57,19 @@
                     @endif
             </div>
             <div class="col-sm-6">
-            
+            <h3>sản phẩm bán chạy</h3>
             @if($chiTietHoaDon)
-                <h3>sản phẩm bán chạy</h3>
-                @if($chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh)
-                    <?php $hinhAnhMinId = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->min('id'); ?>
-                    <?php $hinhAnhMin = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->where('id', $hinhAnhMinId)->first();?>
-                    @if($hinhAnhMin)
-                    <img src="{{ asset($hinhAnhMin->url) }}" width="200px" height="200px" alt="">
-                    @endif
-                    <br>
-                        <h5>Tên sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->ten}}</h5>
-                        
-                        <h5>giá bán sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->gia_ban}} VNĐ</h5> 
+            @if($chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh)
+                <?php $hinhAnhMinId = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->min('id'); ?>
+                <?php $hinhAnhMin = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->where('id', $hinhAnhMinId)->first();?>
+                @if($hinhAnhMin)
+                <img src="{{ asset($hinhAnhMin->url) }}" width="200px" height="200px" alt="">
                 @endif
+                <br>
+                    <h5>Tên sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->ten}}</h5>
+                    
+                    <h5>giá bán sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->gia_ban}} VNĐ</h5> 
+            @endif
             @endif
             </div>
         </div>

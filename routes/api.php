@@ -51,12 +51,9 @@ route::get('tim-kiem-gia-giam/{ten}',[SanPhamAPIController::class,'TimKiemGiaGia
 
 route::post('loc-loai/{idLoai}',[SanPhamAPIController::class,'LocLoaiSanPham']);
 
-route::get('gia-tang/{id}',[SanPhamAPIController::class,'GiaTang']);
+route::get('gia-tang',[SanPhamAPIController::class,'GiaTang']);
 
-route::get('gia-giam/{id}',[SanPhamAPIController::class,'GiaGiam']);
-
-route::post('kiem-tra-so-luong',[SanPhamAPIController::class,'KiemTraSoLuong']);
-
+route::get('gia-giam',[SanPhamAPIController::class,'GiaGiam']);
 //------------------BÌNH LUẬN---------------------------
 
 route::post('luu-binh-luan', [BinhLuanAPIController::class, 'ThemBinhLuanCapMot']);
@@ -79,7 +76,7 @@ route::match(['get', 'post'],'trang-thai-thanh-toan',[HoaDonAPIController::class
 
 route::post('kiem-tra-don-hang',[HoaDonAPIController::class,'KiemTraDonHang']);
 route::match(['get', 'post'],'da-nhan-duoc-hang',[HoaDonAPIController::class,'ThanhCong']);
-route::match(['get', 'post'],'lay-hoa-don-khach-hang',[HoaDonAPIController::class,'LayHoaDonKhachHang']);
+route::post('lay-hoa-don-khach-hang',[HoaDonAPIController::class,'LayHoaDonKhachHang']);
 
 
 route::get('huy-don-hang/{id}',[HoaDonAPIController::class,'Huy']);

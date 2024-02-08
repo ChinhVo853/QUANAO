@@ -44,26 +44,40 @@
         <div class="row">
             <div class="col-sm-6">
                 @if($hoaDonNhieuNhat)
-                <h3>khách hàng mua nhiều</h3>
+                <h3>Khách hàng mua nhiều</h3>
                     @if($hoaDonNhieuNhat->khach_hang->avatar)
                     <?php $hinhAnhMinId = $hoaDonNhieuNhat->khach_hang->min('id'); ?>
                     <?php $hinhAnhMin = $hoaDonNhieuNhat->khach_hang->where('id', $hinhAnhMinId)->first();?>
                     <img src="{{ asset('avatar/' . $hinhAnhMin->avatar) }}" width="200px" height="200px" alt="">
                     @endif
                     <br>
-                    <h5>họ tên: {{$hoaDonNhieuNhat->khach_hang->ho_ten}}</h5>
+                    <h5 style=" margin-top: 10px">Họ tên: {{$hoaDonNhieuNhat->khach_hang->ho_ten}}</h5>
                     
-                    <h5>email: {{$hoaDonNhieuNhat->khach_hang->email}}</h5> 
+                    <h5>Email: {{$hoaDonNhieuNhat->khach_hang->email}}</h5> 
                     @endif
             </div>
             <div class="col-sm-6">
             <h3>sản phẩm bán chạy</h3>
             @if($chiTietHoaDon)
+
             @if($chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh)
                 <?php $hinhAnhMinId = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->min('id'); ?>
                 <?php $hinhAnhMin = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->where('id', $hinhAnhMinId)->first();?>
                 @if($hinhAnhMin)
                 <img src="{{ asset($hinhAnhMin->url) }}" width="200px" height="200px" alt="">
+
+                <h3>Sản phẩm bán chạy</h3>
+                @if($chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh)
+                    <?php $hinhAnhMinId = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->min('id'); ?>
+                    <?php $hinhAnhMin = $chiTietHoaDon->chi_tiet_san_pham->san_pham->hinh_anh->where('id', $hinhAnhMinId)->first();?>
+                    @if($hinhAnhMin)
+                    <img src="{{ asset($hinhAnhMin->url) }}" width="200px" height="200px"  alt="">
+                    @endif
+                    <br>
+                        <h5 style=" margin-top: 10px">Tên sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->ten}}</h5>
+                        
+                        <h5>Giá bán sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->gia_ban}} VNĐ</h5> 
+
                 @endif
                 <br>
                     <h5>Tên sản phẩm: {{$chiTietHoaDon->chi_tiet_san_pham->san_pham->ten}}</h5>
